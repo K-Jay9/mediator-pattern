@@ -21,6 +21,7 @@ public class MediatorMasterControl implements Mediator {
 	public void shiftedLine(String string) {
 		this.circularOutput.add(string);
 		this.alphabetizer.addToAlphabetizedSet(string);
+		this.alphabetizedOutput = this.alphabetizer.getAlphabetizedLines();
 	}
 
 	@Override
@@ -36,8 +37,6 @@ public class MediatorMasterControl implements Mediator {
 
 	public void start() {
 		input.read();
-		this.alphabetizedOutput = this.alphabetizer.getAlphabetizedLines();
-		inputIsFinished();
 
 	}
 }
