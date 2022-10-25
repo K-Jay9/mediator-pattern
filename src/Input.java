@@ -3,9 +3,11 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Input extends Colleague {
+	Mediator mediatorInput;
 
 	Input(Mediator mediator) {
 		super(mediator);
+		this.mediatorInput = mediator;
 
 	}
 
@@ -16,7 +18,7 @@ public class Input extends Colleague {
 			Scanner myReader = new Scanner(myObj);
 			while (myReader.hasNext()) {
 				String data = myReader.nextLine();
-				this.providesNextLine(data);
+				this.mediatorInput.inputProvidesNextLine(data);
 
 			}
 
@@ -24,6 +26,6 @@ public class Input extends Colleague {
 			e.printStackTrace();
 
 		}
-		this.inputIsFinished();
+		this.mediatorInput.inputIsFinished();
 	}
 }

@@ -1,9 +1,11 @@
 public class CircularShifter extends Colleague {
 
+	Mediator mediatorCircular;
 	Alphabetizer alphabetizer = new Alphabetizer();
 
 	CircularShifter(Mediator mediator) {
 		super(mediator);
+		this.mediatorCircular = mediator;
 
 	}
 
@@ -22,7 +24,7 @@ public class CircularShifter extends Colleague {
 				res += st + " ";
 			}
 
-			this.shiftedLine(res.trim());
+			this.mediatorCircular.shiftedLine(res.trim());
 			this.alphabetizer.addToAlphabetizedSet(res.trim());
 			res = "";
 		}
