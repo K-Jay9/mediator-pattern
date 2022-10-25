@@ -31,12 +31,13 @@ public class MediatorMasterControl implements Mediator {
 
 	@Override
 	public void inputIsFinished() throws IllegalStateException {
+		this.output.write(alphabetizedOutput);
 	}
 
 	public void start() {
 		input.read();
 		this.alphabetizedOutput = this.alphabetizer.getAlphabetizedLines();
-		this.output.write(alphabetizedOutput);
+		inputIsFinished();
 
 	}
 }
